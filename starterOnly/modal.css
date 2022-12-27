@@ -35,10 +35,10 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+  float: left;
 }
 .main-navbar {
-    float: right;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -69,7 +69,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -77,7 +79,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -90,16 +94,16 @@ img {
   }
 }
 
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
     margin-top: -15px;
   }
-} 
+}
 
 main {
   font-size: 130%;
@@ -111,8 +115,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -460,6 +462,7 @@ input[data-error]::after {
 .hero-img img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   display: block;
   padding: 0;
 }
@@ -478,6 +481,14 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+@media screen and (max-width: 1108px) {
+  .main-navbar {
+    float: left;
+    padding-top: 25px;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -527,3 +538,72 @@ footer {
   }
 }
 
+/* Adrien */
+
+i {
+  position: relative;
+  visibility: hidden;
+  color: black;
+  background-color: white;
+  left: 385px;
+  bottom: 60px;
+}
+
+i::before {
+  content: "";
+  position: absolute;
+}
+
+small {
+  color: #e74c3c;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+small::before {
+  content: "";
+  position: absolute;
+}
+
+.success .text-control {
+  border: 3px solid #2ecc71;
+}
+
+.error .text-control {
+  border: 3px solid #e74c3c;
+}
+
+.success .fa-circle-check {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.error .fa-circle-exclamation {
+  color: #e74c3c;
+  left: 377px;
+  visibility: visible;
+}
+
+.error small {
+  visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+  .main-navbar {
+    float: right;
+    padding-top: 0px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .main-navbar {
+    padding-top: 25px;
+  }
+}
+
+/* .formData.error */
+.hidden {
+  display: none;
+}
