@@ -20,6 +20,28 @@ function checkInputs() {
   const emailValue = email.value.trim();
   const birthDateValue = birthDate.value.trim();
   const quantityValue = quantity.value.trim();
+  const radioButtons = document.querySelectorAll('input[name="location"]');
+  const checkBox1 = document.getElementById("checkbox1");
+
+  console.log("checkbox : ", checkBox1.value);
+  if (!checkBox1.checked) {
+    setErrorFor(
+      checkBox1,
+      "Vous devez vérifier que vous acceptez les termes et conditions."
+    );
+  } else {
+    setSuccessFor(checkBox1);
+  }
+
+  for (const radioButton of radioButtons) {
+    let selectedSize;
+    if (radioButton.checked) {
+      selectedSize = radioButton.value;
+      setSuccessFor(radioButton);
+      break;
+    }
+    setErrorFor(radioButton, "Vous devez choisir une option.");
+  }
 
   if (firstNameValue === "") {
     setErrorFor(firstName, "le prénom ne peut pas rester vide");
@@ -42,7 +64,7 @@ function checkInputs() {
   }
 
   if (birthDateValue === "") {
-    setErrorFor(birthDate, "la date de naissance ne peut pas rester vide");
+    setErrorFor(birthDate, "Vous devez entrer votre date de naissance.");
     // } else if (!isBirthDate(birthDateValue)) {
     //   setErrorFor(birthDate, "date de naissance invalide");
   } else {
@@ -54,36 +76,6 @@ function checkInputs() {
   } else {
     setSuccessFor(quantity);
   }
-}
-
-//radio button
-const btn = document.querySelector(".btn-submit");
-const radioButtons = document.querySelectorAll(".checkbox-label");
-// const radioButtons = document.querySelectorAll('input[name="location"]');
-btn.addEventListener("click", () => {
-  let selectedSize;
-  for (const radioButton of radioButtons) {
-    if (radioButton.checked) {
-      selectedSize = radioButton.value;
-      break;
-    }
-  }
-  // show the output:
-  console.log(selectedSize);
-  if (selectedSize == undefined) {
-    console.log(`You haven't selected any city`);
-    setErrorForRadio(radioButtons, "ce champ ne peut pas rester vide");
-  } else {
-    console.log(`You selected ${selectedSize}`);
-    setSuccessFor(radioButtons);
-  }
-});
-
-function setErrorForRadio(input, message) {
-  const formControl = input.parentElement;
-  const small = formControl.querySelector("small");
-  console.log(`Valeur de Formcontrol Radio : ${formControl}`);
-  small.innerText = message;
 }
 
 //ERROR SUCCESS
