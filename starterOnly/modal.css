@@ -590,6 +590,15 @@ small::before {
   visibility: visible;
 }
 
+#confirmationMessage {
+  padding: 120px;
+  text-align: center;
+}
+
+#closeBtnRed {
+  margin-bottom: 50px;
+}
+
 @media screen and (max-width: 768px) {
   .main-navbar {
     float: right;
